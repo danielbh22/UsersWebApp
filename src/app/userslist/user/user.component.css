@@ -1,0 +1,21 @@
+div.user{
+  border-style: solid;
+  margin-top: 1%;
+
+}
+
+.frame_red
+{
+border: 1px solid red;
+}
+
+.frame_green
+{
+  border: 1px solid green;
+}
+
+.active
+{
+  background-color: orange;
+}
+

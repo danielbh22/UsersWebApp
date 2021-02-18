@@ -1,0 +1,14 @@
+Todos - User ID: {{userData._id}} <a mat-raised-button [routerLink]='["/mainpoststodos/addtodo/",userData._id]'>Add</a>
+<br/>
+<br/>
+<div class="todos">
+
+  <form *ngFor="let task of userData.tasks" style="border-color: purple; border-style: solid; margin: 3%;" >
+    Title : {{task.title}}<br/>
+    Completed : {{task.completed}}
+    <input *ngIf="!task.completed" type="button" value="Mark Completed" (click)="taskCompleted(task._id)">
+
+   </form>
+
+</div>
+

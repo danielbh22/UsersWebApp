@@ -1,0 +1,11 @@
+Posts - User ID: {{userData._id}} <a mat-raised-button [routerLink]='["/mainpoststodos/addpost/",userData._id]'>Add</a>
+<br/>
+<br/>
+<div class="posts">
+<form *ngFor="let post of userData.posts" style="border-color: purple; border-style: solid; margin: 3%; " >
+    Title : {{post.title}}<br/>
+    Body : {{post.body}}
+
+   </form>
+
+</div>

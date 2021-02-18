@@ -1,0 +1,12 @@
+<h3>Add New User</h3>
+
+
+<form #f="ngForm" (ngSubmit)="save(f.valid)">
+
+    Name : <input required type="text" [(ngModel)]="user.name" name="name"><br/>
+    Email : <input required type="text" [(ngModel)]="user.email" name="email"><br/>
+
+    <input  [disabled]="!f.valid" type="submit" value="Save">
+    <a mat-raised-button routerLink='/'>Cancel</a><br/>
+
+</form>

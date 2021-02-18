@@ -1,0 +1,34 @@
+<mat-card routerLinkActive="active" [ngClass]="[TasksStatus(userData)? 'frame_green':'frame_red']" >
+
+  <form   #f="ngForm" (ngSubmit)="update()">
+
+    ID : <a mat-button  [routerLink]='["/mainpoststodos",userData._id]'  >{{userData._id}}</a> <br/>
+    Name : <input type="text" [(ngModel)]="userData.name" name="name" /><br/>
+
+    Email : <input type="text" [(ngModel)]="userData.email" name="email" /><br/><br/>
+
+
+    <input type="button" value="Other Data" (mouseover)="showOrHide()">
+
+    <div [style.display] = "isVisible ? 'block' : 'none' ">
+      Street : <input type="text" [(ngModel)]="userData.street" name="street" /> <br/>
+      City : <input type="text" [(ngModel)]="userData.city" name="city" /> <br/>
+      Zip Code : <input type="text" [(ngModel)]="userData.zipcode" name="zipcode" /> <br/>
+    </div>
+    <input  type="submit" value="Update">
+
+    <input type="button" value="Delete" (click)="delete()">
+
+  </form>
+
+
+
+
+</mat-card>
+<br/>
+
+
+
+
+
+

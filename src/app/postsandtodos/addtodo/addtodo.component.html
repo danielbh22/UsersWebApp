@@ -1,0 +1,5 @@
+<form #f="ngForm" (ngSubmit)="add(title.value)">
+  Title: <input required #title type="text" ><br/>
+  <input [disabled]="!f.valid" type="submit" value="Add">
+  <input type="button" value="Cancel" [routerLink]='["/mainpoststodos/",userData._id]'>
+</form>
