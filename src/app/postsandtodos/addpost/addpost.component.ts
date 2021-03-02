@@ -12,7 +12,8 @@ import { UsersUtilsService } from 'src/app/users-utils.service';
 export class AddpostComponent implements OnInit {
   userid : string;
   sub1 : Subscription;
-  sub2  :Subscription;
+  sub2 :Subscription;
+  sub3 : Subscription;
 
   userData : User = new User();
 
@@ -24,7 +25,7 @@ export class AddpostComponent implements OnInit {
     let newPost : any = { title : t ,body : b};
     this.userData.posts.push(newPost);
 
-    this.utils.updateUser(this.userid,this.userData)
+    this.sub3 = this.utils.updateUser(this.userid,this.userData)
       .subscribe(status =>
         {
           alert(status);
@@ -46,6 +47,10 @@ export class AddpostComponent implements OnInit {
   {
     this.sub1.unsubscribe();
     this.sub2.unsubscribe();
+    if(this.sub3 != null)
+    {
+      this.sub3.unsubscribe();
+    }
 
   }
 }

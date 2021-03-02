@@ -18,21 +18,19 @@ export class UserComponent implements OnInit {
 
   activatedRoute = "";
 
-
-
-
+  sub1 : Subscription;
+  sub2 : Subscription;
 
   constructor(private utils : UsersUtilsService, private ar :ActivatedRoute, public router : Router) { }
 
   ngOnInit(): void {
 
 
-
   }
 
   delete()
   {
-    this.utils.deletetUser(this.userData._id).subscribe(() =>
+    this.sub1 = this.utils.deletetUser(this.userData._id).subscribe(() =>
     {
       alert('User Deleted !');
       //this.router.navigate([""])
@@ -41,7 +39,7 @@ export class UserComponent implements OnInit {
 
   update()
   {
-     this.utils.updateUser(this.userData._id, this.userData)
+    this.sub2 = this.utils.updateUser(this.userData._id, this.userData)
     .subscribe( status => alert("User Updated !"));
 
   }
@@ -64,4 +62,18 @@ export class UserComponent implements OnInit {
     return tasksB
 
   }
+
+  ngOnDestroy(): void {
+    if(this.sub1 !=null)
+    {
+      this.sub1.unsubscribe()
+    }
+
+    if(this.sub2 !=null)
+    {
+      this.sub2.unsubscribe()
+    }
+
+  }
+
  }

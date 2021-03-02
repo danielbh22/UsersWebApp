@@ -12,6 +12,7 @@ export class AddnewuserComponent implements OnInit {
 
   user : User = new User();
 
+  sub : Subscription;
 
   constructor(private utils : UsersUtilsService) { }
 
@@ -22,10 +23,16 @@ export class AddnewuserComponent implements OnInit {
   {
     if(isValid)
     {
-    this.utils.addNewUser(this.user).subscribe( status => alert(status) );
+    this.sub = this.utils.addNewUser(this.user).subscribe( status => alert(status) );
     }
   }
 
+  ngOnDestroy(): void {
+    if(this.sub !=null)
+    {
+      this.sub.unsubscribe()
+    }
 
+  }
 
 }

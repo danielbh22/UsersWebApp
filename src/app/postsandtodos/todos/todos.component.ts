@@ -34,7 +34,7 @@ export class TodosComponent implements OnInit {
        .subscribe(status =>
          {
            alert(status);
-           this.router.navigate(['/mainpoststodos/']);
+           this.router.navigate(['mainpoststodos/',this.userData._id]);
 
          });
 

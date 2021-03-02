@@ -13,7 +13,8 @@ export class AddtodoComponent implements OnInit {
 
   userid : string;
   sub1 : Subscription;
-  sub2  :Subscription;
+  sub2 : Subscription;
+  sub3 : Subscription;
 
   userData : User = new User();
 
@@ -25,7 +26,7 @@ export class AddtodoComponent implements OnInit {
     let newTask : any = { title : t ,completed : false};
     this.userData.tasks.push(newTask);
 
-    this.utils.updateUser(this.userid,this.userData)
+    this.sub3 = this.utils.updateUser(this.userid,this.userData)
       .subscribe(status =>
         {
           alert(status);
@@ -47,6 +48,11 @@ export class AddtodoComponent implements OnInit {
   {
     this.sub1.unsubscribe();
     this.sub2.unsubscribe();
+
+    if(this.sub3 != null)
+    {
+      this.sub3.unsubscribe();
+    }
 
   }
 }
